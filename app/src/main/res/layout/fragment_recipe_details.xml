@@ -1,0 +1,28 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahmed.bakingapp.RecipeDetailsFragment">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recipe_ingredients"
+        android:gravity="center"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:id="@+id/btn_recipe_ingredients"
+        android:layout_alignParentTop="true"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_steps_list"
+        android:layout_below="@id/btn_recipe_ingredients"
+        />
+
+
+
+</RelativeLayout>
