@@ -37,7 +37,8 @@ public class RecipeDetailsFragment extends Fragment  {
     private Recipe mRecipe;
     private StepsListAdapter mStepListAdapter;
     private StepsListAdapter.OnStepClickListener mOnStepClickListener;
-    private static final String BUNDLE_RECYCLER_LAYOUT = "classname.recycler.layout";
+    private static final String LIST_STATE_KEY = "keey";
+    private static Parcelable mListState;
 
 
     public RecipeDetailsFragment() {
@@ -99,28 +100,32 @@ public class RecipeDetailsFragment extends Fragment  {
     }
 
 
+
+
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(LIST_STATE_KEY, mRecyclerView.getLayoutManager().onSaveInstanceState());
+
 
 
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, mRecyclerView.getLayoutManager().onSaveInstanceState());
-
+    public void onResume() {
+        super.onResume();
+        if(mListState != null){
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(mListState);
+        }
 
     }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        if(savedInstanceState != null)
-        {
-            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
-            mRecyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        if(savedInstanceState != null) {
+            mListState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+
         }
 
 

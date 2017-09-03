@@ -27,13 +27,14 @@ public class RecipesListFragment extends Fragment implements RecipesListAdapter.
 
     RecipesListAdapter mRecipeListAdapter;
     List<Recipe> mRecipesList;
-    private static final String BUNDLE_RECYCLER_LAYOUT = "classname.recycler.layout";
+
+    private static final String LIST_STATE_KEY = "keey";
+    private static Parcelable mListState;
 
 
     public RecipesListFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -43,9 +44,7 @@ public class RecipesListFragment extends Fragment implements RecipesListAdapter.
 
         try {
             mRecipesList = Recipe.parseJson(getContext());
-        }
-
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         mRecipeListAdapter.setRecipesList(mRecipesList);
@@ -68,7 +67,6 @@ public class RecipesListFragment extends Fragment implements RecipesListAdapter.
         mRecyclerView.addItemDecoration(dividerItemDecoration);
 
 
-
         return root;
     }
 
@@ -83,20 +81,30 @@ public class RecipesListFragment extends Fragment implements RecipesListAdapter.
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, mRecyclerView.getLayoutManager().onSaveInstanceState());
+        outState.putParcelable(LIST_STATE_KEY, mRecyclerView.getLayoutManager().onSaveInstanceState());
 
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mListState != null) {
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(mListState);
+        }
 
     }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        if(savedInstanceState != null)
-        {
-            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
-            mRecyclerView.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        if (savedInstanceState != null) {
+            mListState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+
         }
 
 
     }
+
+
 }
