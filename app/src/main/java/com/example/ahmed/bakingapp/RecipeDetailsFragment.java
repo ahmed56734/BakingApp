@@ -1,8 +1,6 @@
 package com.example.ahmed.bakingapp;
 
 
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,15 +8,19 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.ahmed.bakingapp.adapters.StepsListAdapter;
+import com.example.ahmed.bakingapp.models.Ingredient;
+import com.example.ahmed.bakingapp.models.Recipe;
+import com.example.ahmed.bakingapp.models.Step;
+import com.example.ahmed.bakingapp.widget.UpdateAppWidgetService;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ahmed.bakingapp.adapters.RecipesListAdapter;
+import com.example.ahmed.bakingapp.models.Recipe;
+
 import java.io.IOException;
 import java.util.List;
 

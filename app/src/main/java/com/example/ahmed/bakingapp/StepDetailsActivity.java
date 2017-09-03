@@ -3,6 +3,8 @@ package com.example.ahmed.bakingapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.ahmed.bakingapp.models.Step;
+
 public class StepDetailsActivity extends AppCompatActivity {
 
     @Override

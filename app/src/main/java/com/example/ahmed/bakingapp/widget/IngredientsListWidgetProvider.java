@@ -1,15 +1,12 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.RemoteViews;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.ahmed.bakingapp.R;
 
 /**
  * Implementation of App Widget functionality.

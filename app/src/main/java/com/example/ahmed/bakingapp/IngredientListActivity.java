@@ -3,6 +3,8 @@ package com.example.ahmed.bakingapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.ahmed.bakingapp.models.Ingredient;
+
 import java.util.ArrayList;
 
 public class IngredientListActivity extends AppCompatActivity {

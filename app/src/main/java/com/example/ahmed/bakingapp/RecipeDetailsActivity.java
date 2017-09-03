@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.ahmed.bakingapp.adapters.StepsListAdapter;
+import com.example.ahmed.bakingapp.models.Recipe;
+import com.example.ahmed.bakingapp.models.Step;
+
 public class RecipeDetailsActivity extends AppCompatActivity implements StepsListAdapter.OnStepClickListener {
 
     private boolean mIsTwoPane;

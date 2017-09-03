@@ -1,10 +1,12 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.ahmed.bakingapp.models.Ingredient;
 
 import java.util.List;
 

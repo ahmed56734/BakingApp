@@ -1,11 +1,13 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.widget;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
+
+import com.example.ahmed.bakingapp.models.Ingredient;
+import com.example.ahmed.bakingapp.R;
+import com.example.ahmed.bakingapp.models.Recipe;
 
 import java.io.IOException;
 import java.util.List;

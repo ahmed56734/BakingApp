@@ -1,10 +1,13 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.ahmed.bakingapp.R;
+import com.example.ahmed.bakingapp.models.Step;
 
 import java.util.List;
 
@@ -18,11 +21,11 @@ public class StepsListAdapter extends RecyclerView.Adapter<StepsListAdapter.Step
     OnStepClickListener mOnStepClickListener;
 
 
-    interface OnStepClickListener{
+    public interface OnStepClickListener{
         void onStepClick(Step step);
     }
 
-    StepsListAdapter(OnStepClickListener onStepClickListener){
+    public StepsListAdapter(OnStepClickListener onStepClickListener){
         mOnStepClickListener = onStepClickListener;
     }
     @Override

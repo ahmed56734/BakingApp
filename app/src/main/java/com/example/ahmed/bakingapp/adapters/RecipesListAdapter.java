@@ -1,4 +1,4 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.ahmed.bakingapp.R;
+import com.example.ahmed.bakingapp.models.Recipe;
 
 import java.util.List;
 
@@ -24,11 +27,11 @@ public class RecipesListAdapter extends RecyclerView.Adapter<RecipesListAdapter.
     private OnRecipeClickListener mOnRecipeClickListener;
 
 
-    interface OnRecipeClickListener{
+    public interface OnRecipeClickListener{
         void onRecipeClick(int position);
     }
 
-    RecipesListAdapter(Context context, OnRecipeClickListener onRecipeClickListener){
+    public RecipesListAdapter(Context context, OnRecipeClickListener onRecipeClickListener){
         mContext = context;
         mOnRecipeClickListener = onRecipeClickListener;
     }

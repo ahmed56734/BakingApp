@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ahmed.bakingapp.adapters.IngredientListAdapter;
+import com.example.ahmed.bakingapp.models.Ingredient;
+
 import java.util.ArrayList;
 import java.util.List;
 

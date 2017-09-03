@@ -21,7 +21,7 @@
         <activity android:name=".IngredientListActivity" />
         <activity android:name=".StepDetailsActivity" />
 
-        <receiver android:name=".IngredientsListWidgetProvider">
+        <receiver android:name=".widget.IngredientsListWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -32,11 +32,11 @@
         </receiver>
 
         <service
-            android:name="com.example.ahmed.bakingapp.IngredientsRemoteViewsService"
+            android:name="com.example.ahmed.bakingapp.widget.IngredientsRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS"/>
 
         <service
-            android:name=".UpdateAppWidgetService"/>
+            android:name=".widget.UpdateAppWidgetService"/>
     </application>
 
 </manifest>

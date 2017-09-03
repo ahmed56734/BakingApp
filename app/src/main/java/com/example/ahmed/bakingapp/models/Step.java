@@ -1,4 +1,4 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

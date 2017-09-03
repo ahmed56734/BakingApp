@@ -1,11 +1,10 @@
-package com.example.ahmed.bakingapp;
+package com.example.ahmed.bakingapp.widget;
 
 import android.app.IntentService;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 /**
  * Created by ahmed on 7/2/17.

@@ -79,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c16ae882c534d14586c7d02209faaa9240f58d7c">
+        sha1="9a3206e8845401f9a50dffd1e3a6785a0591df10">
         <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_49c33c22d9b3fa4e826250283e1655237c3be2b9/classes.dex" />
     </item>
     <item
