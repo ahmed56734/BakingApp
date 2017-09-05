@@ -2,15 +2,23 @@ package com.example.ahmed.bakingapp.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.example.ahmed.bakingapp.models.Ingredient;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.example.ahmed.bakingapp.R;
+import com.example.ahmed.bakingapp.models.Ingredient;
 import com.example.ahmed.bakingapp.models.Recipe;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskCompletionSource;
+import com.google.android.gms.tasks.Tasks;
 
-import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by ahmed on 7/2/17.
@@ -27,7 +35,7 @@ class IngredientsListRemoteViewsFactory implements RemoteViewsService.RemoteView
 
     private Context mContext;
     private List<Ingredient> mIngredientsList;
-    private String recipeName;
+    private String mRecipeName;
 
     IngredientsListRemoteViewsFactory(Context context){
         mContext = context;
@@ -40,15 +48,40 @@ class IngredientsListRemoteViewsFactory implements RemoteViewsService.RemoteView
 
     @Override
     public void onDataSetChanged() {
-        String recipeId = mContext.getSharedPreferences("recipes", Context.MODE_PRIVATE).getString("recipe_id", "2");
-        Recipe recipe = null;
+        final int recipeId = mContext.getSharedPreferences("recipes", Context.MODE_PRIVATE).getInt("recipe_id", 1);
+
+        final TaskCompletionSource<List<Ingredient>> taskCompletionSource = new TaskCompletionSource<>();
+        Task<List<Ingredient>> task = taskCompletionSource.getTask();
+
+        AndroidNetworking.get("https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json")
+                .setTag(this)
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsObjectList(Recipe.class, new ParsedRequestListener<List<Recipe>>() {
+                    @Override
+                    public void onResponse(List<Recipe> recipes) {
+                        for(Recipe recipe : recipes){
+                            if(recipe.getId() == recipeId){
+                                mRecipeName = recipe.getName();
+                                taskCompletionSource.setResult(recipe.getIngredients());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        // handle error
+                        Log.d("network", "error", anError);
+                    }
+                });
+
         try {
-            recipe = Recipe.getRecipeById(mContext, recipeId);
-        } catch (IOException e) {
+            mIngredientsList = Tasks.await(task);
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
-        mIngredientsList = recipe.getIngredients();
-        recipeName = recipe.getName();
+
+
     }
 
     @Override
@@ -70,12 +103,12 @@ class IngredientsListRemoteViewsFactory implements RemoteViewsService.RemoteView
         String text;
 
         if(i == 0){
-            text = recipeName + " Ingredients\n";
+            text = mRecipeName + " Ingredients\n";
         }
         else {
-            String name = mIngredientsList.get(i-1).getIngredientName();
+            String name = mIngredientsList.get(i-1).getIngredient();
             String measure = mIngredientsList.get(i-1).getMeasure();
-            String quantity = mIngredientsList.get(i-1).getQuantity();
+            String quantity = String.valueOf(mIngredientsList.get(i-1).getQuantity());
             text =  quantity + " " + measure + "  " + name;
         }
         itemRemoteViews.setTextViewText(R.id.tv_ingredient_item_widget, text);

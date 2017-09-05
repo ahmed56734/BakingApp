@@ -137,9 +137,11 @@ public class RecipeDetailsFragment extends Fragment  {
     public void onStop() {
         super.onStop();
 
-        String recipeId = mRecipe.getId();
+        mListState = mRecyclerView.getLayoutManager().onSaveInstanceState();
+
+        int recipeId = mRecipe.getId();
         SharedPreferences.Editor editor = getContext().getSharedPreferences("recipes", Context.MODE_PRIVATE).edit();
-        editor.putString("recipe_id", recipeId);
+        editor.putInt("recipe_id", recipeId);
         editor.commit();
 
         UpdateAppWidgetService.startActionUpdateIngredientsWidget(getContext());

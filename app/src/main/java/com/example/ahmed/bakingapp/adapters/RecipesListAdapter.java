@@ -34,6 +34,7 @@ public class RecipesListAdapter extends RecyclerView.Adapter<RecipesListAdapter.
     public RecipesListAdapter(Context context, OnRecipeClickListener onRecipeClickListener){
         mContext = context;
         mOnRecipeClickListener = onRecipeClickListener;
+
     }
 
     @Override
@@ -46,11 +47,10 @@ public class RecipesListAdapter extends RecyclerView.Adapter<RecipesListAdapter.
     public void onBindViewHolder(RecipeViewHolder holder, int position) {
         String recipeName = mRecipesList.get(position).getName();
 
-        String imageName = mRecipesList.get(position).getImageName();
-        int id = mContext.getResources().getIdentifier(imageName, "drawable", mContext.getPackageName());
+
 
         holder.recipeNameTextView.setText(recipeName);
-        holder.imageView.setImageResource(id);
+
     }
 
     @Override
@@ -63,6 +63,7 @@ public class RecipesListAdapter extends RecyclerView.Adapter<RecipesListAdapter.
 
     public void setRecipesList(List<Recipe> recipesList){
         mRecipesList = recipesList;
+
         notifyDataSetChanged();
 
     }

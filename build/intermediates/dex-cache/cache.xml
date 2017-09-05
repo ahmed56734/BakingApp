@@ -2,31 +2,31 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/d1afec8d0cf97d698d3b4efe5debed487abc954e/output/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/ahmed/.android/build-cache/aa01b5b2e8bb845f434ba895304a7f055416df0e/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="31abcff1d93243e1d25afda575266ca6219fadd1">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_b9fb2189e24bd0ba2668b2b55550ab200caa5bbf.jar" />
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_53effc9671eaa0d06286e6eb39c0d0d739eeee81/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/883a82a84f281dfdc24fe96135c003f9b5221bbf/output/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/ahmed/.android/build-cache/fc724f65ddc55fe5ee582a3209829ecb2946e32b/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3ecb9d2aad9a03dd8d0914b715cc1fc11d942c6c">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_8cd659a1ae2f1e6f4fdf7612e434ea8896f70a73.jar" />
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b7c869480964abecf72b0f174a4efabf6968f4f9/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/a5b0ac751820836c01ed6724bddb127f402b3b79/output/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="cfc67519fb914bc50f2434bad36ed2001412777a">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_5e3a390f56240ca0baee1880b80334d6fbd883fd.jar" />
+        sha1="942bbfaf6220494282e36eaff6f36bd5cde7a9d2">
+        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_49c33c22d9b3fa4e826250283e1655237c3be2b9/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -36,69 +36,6 @@
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_56a0d44d61bda4bbba723a27151f736b4404761e/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/5b79f9a1710f74bf2b6c974940f4d7150a042b8a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="52f4541e66a53c22179655d7e9c6fccf12cba86a">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_5d27a17015e36596a54794136667c71c4e2c194c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/3fd4fe850d62c19074589cdaac672ae82a5fd070/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bc987989a5b6a23cc00d436f97cbf82e644c739d">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_3789664eaec49b3dac63fd2c573a20f8359b25c6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/277a7a168b094076356b970c7dbdc092c96c1de4/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="be587097e648eabfb7f9eca23ab03369894e2d5d">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_d1a9d1b20c995a3e1b4b2f8960d1b81e145f66fe.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/78f8f33dde53e3e4d9d73a4fb9400fc488ec8798/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1a22d14a4ee12a1fc2e765eb280d94ea73efa630">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_cf425db6cc75dff925841bcc9710ac3ea5231ecb.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9a3206e8845401f9a50dffd1e3a6785a0591df10">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_49c33c22d9b3fa4e826250283e1655237c3be2b9/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ahmed/.android/build-cache/2c67fd69556533660f069e47aa2a23dc7fc85114/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/classes_5c2eade93c24c4a52cfa07a3d6e8dd44d63e446d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ahmed/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.6.0/48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8/butterknife-annotations-8.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="48efa6f14074e1a6b16e02ac05eba3fc5c7c7ec8">
-        <dex dex="/home/ahmed/AndroidStudioProjects/BakingApp/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.6.0_a274cfffbf8991ce7c736cd780d6197b6ea05bbc.jar" />
     </item>
 
 </items>

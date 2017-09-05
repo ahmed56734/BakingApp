@@ -17,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        RecipesListFragment recipesListFragment = new RecipesListFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.recipe_fragment_container, recipesListFragment).commit();
+        if(savedInstanceState == null) {
+            RecipesListFragment recipesListFragment = new RecipesListFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.recipe_fragment_container, recipesListFragment).commit();
+        }
 
 
 
