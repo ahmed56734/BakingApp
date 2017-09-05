@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ahmed.bakingapp.models.Step;
@@ -25,6 +26,7 @@ import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.squareup.picasso.Picasso;
 
 
 import butterknife.BindView;
@@ -38,12 +40,14 @@ public class StepDetailsFragment extends Fragment {
 
     @BindView(R.id.tv_step_description) TextView mDescriptionTextView;
     @BindView(R.id.exo_player_view) SimpleExoPlayerView mSimpleExoPlayerView;
+    @BindView(R.id.thumbnail) ImageView mThumbnailImageView;
     private Step mStep;
     private String mVideoURL;
     private SimpleExoPlayer mSimpleExoPlayer;
     private int mImageID;
     private boolean videoExists = true;
     private static final DefaultBandwidthMeter BANDWIDTH_METER = new DefaultBandwidthMeter();
+    private String mThumbnailURL;
 
     public StepDetailsFragment() {
         // Required empty public constructor
@@ -64,13 +68,18 @@ public class StepDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mStep = getArguments().getParcelable("step");
+        mThumbnailURL = mStep.getThumbnailURL();
 
         if(mStep.getVideoURL() != null && !mStep.getVideoURL().isEmpty())
             mVideoURL = mStep.getVideoURL();
-        else if (mStep.getThumbnailURL() != null && !mStep.getThumbnailURL().isEmpty())
-            mVideoURL = mStep.getThumbnailURL();
+
+        else if (mThumbnailURL != null && !mThumbnailURL.isEmpty() && mThumbnailURL.endsWith(".mp4"))
+            mVideoURL = mThumbnailURL;
+
         else
             videoExists = false;
+
+
 
     }
 
@@ -84,8 +93,16 @@ public class StepDetailsFragment extends Fragment {
 
         mDescriptionTextView.setText(mStep.getDescription());
 
-        if(!videoExists)
+        if(!videoExists){
             mSimpleExoPlayerView.setVisibility(View.GONE);
+
+            if(mThumbnailURL != null && ! mThumbnailURL.isEmpty()){
+                mThumbnailImageView.setVisibility(View.VISIBLE);
+                Picasso.with(getContext()).load(mThumbnailURL).into(mThumbnailImageView);
+            }
+        }
+
+
 
         else if(getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             mSimpleExoPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);

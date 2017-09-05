@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.ahmed.bakingapp.R;
 import com.example.ahmed.bakingapp.models.Recipe;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -27,11 +28,11 @@ public class RecipesListAdapter extends RecyclerView.Adapter<RecipesListAdapter.
     private OnRecipeClickListener mOnRecipeClickListener;
 
 
-    public interface OnRecipeClickListener{
+    public interface OnRecipeClickListener {
         void onRecipeClick(int position);
     }
 
-    public RecipesListAdapter(Context context, OnRecipeClickListener onRecipeClickListener){
+    public RecipesListAdapter(Context context, OnRecipeClickListener onRecipeClickListener) {
         mContext = context;
         mOnRecipeClickListener = onRecipeClickListener;
 
@@ -45,40 +46,59 @@ public class RecipesListAdapter extends RecyclerView.Adapter<RecipesListAdapter.
 
     @Override
     public void onBindViewHolder(RecipeViewHolder holder, int position) {
-        String recipeName = mRecipesList.get(position).getName();
 
+        Recipe recipe = mRecipesList.get(position);
+        String recipeName = recipe.getName();
+        String ImageURL = recipe.getImage();
 
 
         holder.recipeNameTextView.setText(recipeName);
+        holder.setImageResource(ImageURL);
 
     }
 
     @Override
     public int getItemCount() {
-        if(mRecipesList == null)
+        if (mRecipesList == null)
             return 0;
         else
             return mRecipesList.size();
     }
 
-    public void setRecipesList(List<Recipe> recipesList){
+    public void setRecipesList(List<Recipe> recipesList) {
         mRecipesList = recipesList;
 
         notifyDataSetChanged();
 
     }
 
-    public Recipe getRecipe(int position){
+    public Recipe getRecipe(int position) {
         return mRecipesList.get(position);
     }
 
     public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.tv_recipe_name) TextView recipeNameTextView;
-        @BindView(R.id.iv_recipe_image) ImageView imageView;
-        public RecipeViewHolder(View itemView) {
+        @BindView(R.id.tv_recipe_name)
+        TextView recipeNameTextView;
+        @BindView(R.id.iv_recipe_image)
+        ImageView imageView;
+
+        RecipeViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             imageView.setOnClickListener(this);
+        }
+
+        void setImageResource(String imageURL) {
+
+            if (imageURL != null && !imageURL.isEmpty()) {
+                Picasso.with(mContext)
+                        .load(imageURL)
+                        .error(R.drawable.placeholder)
+                        .into(imageView);
+            }
+
+            else
+                imageView.setImageResource(R.drawable.placeholder);
         }
 
         @Override

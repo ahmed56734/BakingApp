@@ -56,9 +56,7 @@ public class StepsListAdapter extends RecyclerView.Adapter<StepsListAdapter.Step
         return mSteps.size();
     }
 
-    public Step getStep(int position){
-        return mSteps.get(position);
-    }
+
 
     public class StepViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public StepViewHolder(View itemView) {
