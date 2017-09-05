@@ -73,9 +73,6 @@ public class StepDetailsFragment extends Fragment {
         if(mStep.getVideoURL() != null && !mStep.getVideoURL().isEmpty())
             mVideoURL = mStep.getVideoURL();
 
-        else if (mThumbnailURL != null && !mThumbnailURL.isEmpty() && mThumbnailURL.endsWith(".mp4"))
-            mVideoURL = mThumbnailURL;
-
         else
             videoExists = false;
 
@@ -96,7 +93,7 @@ public class StepDetailsFragment extends Fragment {
         if(!videoExists){
             mSimpleExoPlayerView.setVisibility(View.GONE);
 
-            if(mThumbnailURL != null && ! mThumbnailURL.isEmpty()){
+            if(mThumbnailURL != null && !mThumbnailURL.isEmpty() && !mThumbnailURL.endsWith(".mp4")){
                 mThumbnailImageView.setVisibility(View.VISIBLE);
                 Picasso.with(getContext()).load(mThumbnailURL).into(mThumbnailImageView);
             }
