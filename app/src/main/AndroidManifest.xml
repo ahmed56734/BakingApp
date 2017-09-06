@@ -18,9 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecipeDetailsActivity" />
+        <activity
+            android:name=".RecipeDetailsActivity"
+            android:parentActivityName=".MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+
+        </activity>
         <activity android:name=".IngredientListActivity" />
         <activity android:name=".StepDetailsActivity" />
+
 
         <receiver android:name=".widget.IngredientsListWidgetProvider">
             <intent-filter>
@@ -34,10 +43,9 @@
 
         <service
             android:name="com.example.ahmed.bakingapp.widget.IngredientsRemoteViewsService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <service
-            android:name=".widget.UpdateAppWidgetService"/>
+        <service android:name=".widget.UpdateAppWidgetService" />
     </application>
 
 </manifest>

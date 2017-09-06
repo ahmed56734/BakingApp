@@ -12,6 +12,8 @@ public class StepDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_details);
 
+
+
         Bundle extras = getIntent().getExtras();
         Step step = extras.getParcelable("step");
 

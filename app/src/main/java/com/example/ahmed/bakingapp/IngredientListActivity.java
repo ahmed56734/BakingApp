@@ -14,6 +14,7 @@ public class IngredientListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredient_list);
 
+
         ArrayList<Ingredient> ingredients = getIntent().getParcelableArrayListExtra("ingredients");
 
         IngredientsListFragment ingredientsListFragment = IngredientsListFragment.newInstance(ingredients);
