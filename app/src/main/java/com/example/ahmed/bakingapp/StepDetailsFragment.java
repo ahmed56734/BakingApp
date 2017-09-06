@@ -29,6 +29,8 @@ import com.google.android.exoplayer2.util.Util;
 import com.squareup.picasso.Picasso;
 
 
+import java.net.URLConnection;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -93,7 +95,7 @@ public class StepDetailsFragment extends Fragment {
         if(!videoExists){
             mSimpleExoPlayerView.setVisibility(View.GONE);
 
-            if(mThumbnailURL != null && !mThumbnailURL.isEmpty() && !mThumbnailURL.endsWith(".mp4")){
+            if(mThumbnailURL != null && !mThumbnailURL.isEmpty() && isImageFile(mThumbnailURL)){
                 mThumbnailImageView.setVisibility(View.VISIBLE);
                 Picasso.with(getContext()).load(mThumbnailURL).into(mThumbnailImageView);
             }
@@ -188,6 +190,11 @@ public class StepDetailsFragment extends Fragment {
             mSimpleExoPlayer = null;
         }
 
+    }
+
+    private boolean isImageFile(String path) {
+        String mimeType = URLConnection.guessContentTypeFromName(path);
+        return mimeType != null && mimeType.startsWith("image");
     }
 
 
